@@ -83,6 +83,7 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
+  alert(`Player ${currPlayer} wins!!!`)
 }
 
 /** handleClick: handle click of column top to play piece */
