@@ -8,8 +8,13 @@
 const HEIGHT = 6;
 const WIDTH = 7;
 
+const winner = document.getElementById('winner');
+const player = document.getElementById('current-player');
+
 let currPlayer = 1; // active player: 1 or 2
 const board = []; // array of rows, each row is array of cells  (board[y][x])
+player.innerHTML = `Current player: Player ${currPlayer}`;
+
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
@@ -52,6 +57,7 @@ function makeHtmlBoard() {
     }
     htmlBoard.append(row);
   }
+ 
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
@@ -83,7 +89,8 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  alert(`Player ${currPlayer} wins!!!`)
+  // alert(`Player ${currPlayer} wins!!!`)
+  winner.innerHTML = `Winner: Player ${currPlayer}`;
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -118,6 +125,7 @@ function handleClick(evt) {
   } else {
     currPlayer = 1;
   }
+  player.innerHTML = `Current player: Player ${currPlayer}`;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
@@ -129,7 +137,8 @@ function checkForTie(){
     }
   }
 }
-alert('Tie');
+// alert('Tie');
+winner.innerText = 'Tie!';
 }
 
 function checkForWin() {
